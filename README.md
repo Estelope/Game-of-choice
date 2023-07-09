@@ -1,4 +1,4 @@
-# Game of choice
+# Pig Dice
  
  #### By Estevan Lopez and Joseph Murray 
 
