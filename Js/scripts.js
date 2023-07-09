@@ -43,7 +43,7 @@ function playDice() {
     document.getElementById("bust").setAttribute("class", "hidden");
     document.getElementById("tempScoreNumber").textContent = currentScore;
     document.getElementById("tempScore").classList.remove("hidden");
-  }                              
+  }
 
   if (playerScores[currentPlayer] + currentScore >= 100) {
     document.getElementById("player" + (currentPlayer + 1)).textContent = playerScores[currentPlayer] + currentScore + " WINNER!";
@@ -75,6 +75,7 @@ function changePlayer() {
   currentScore = 0;
   if (currentPlayer === 0) {
     currentPlayer = 1;
+    document.getElementById("tempScore").classList.add("hidden");
     document.getElementById("player").textContent = currentPlayer + 1;
   } else {
     currentPlayer = 0;
