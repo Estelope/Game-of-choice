@@ -14,19 +14,23 @@ window.onload = function () {
 }
 
 function playDice() {
-    let diceValue = rollDice();
-    if (diceValue === 1) {
-      document.getElementById("bust").removeAttribute("class", "hidden");
-      currentScore = 0;
-      changePlayer(currentPlayer, playerScores);
-    }
-    else {
-      currentScore += diceValue;
-      document.getElementById("tempScoreNumber").textContent = currentScore;
+  let diceValue = rollDice();
+  let showRoll = document.getElementById("showRoll");
+  showRoll.innerText = "Your Roll:" + diceValue;
+  
+  if (diceValue === 1) {
+    document.getElementById("bust").removeAttribute("class", "hidden");
+    currentScore = 0;
+    changePlayer(currentPlayer, playerScores);
+  }
+  else {
+    currentScore += diceValue;
+    document.getElementById("bust").setAttribute("class", "hidden");
+    document.getElementById("tempScoreNumber").textContent = currentScore;
     document.getElementById("tempScore").classList.remove("hidden");
-    }
+  }
 
-  if (playerScores[currentPlayer] +currentScore >= 100) {
+  if (playerScores[currentPlayer] + currentScore >= 100) {
     console.log(([currentPlayer] + 1) + " wins");
     document.getElementById("player" + (currentPlayer + 1)).textContent = playerScores[currentPlayer] + currentScore;
     endGame();
@@ -35,6 +39,7 @@ function playDice() {
 
 function rollDice() {
   return Math.floor(Math.random() * 6) + 1;
+
 }
 function reset() {
   currentPlayer = 0;
@@ -59,6 +64,7 @@ function changePlayer() {
   currentScore = 0;
   if (currentPlayer === 0) {
     currentPlayer = 1;
+    document.getElementById("player").textContent = currentPlayer + 1;
   } else {
     currentPlayer = 0;
     document.getElementById("tempScore").classList.add("hidden");
