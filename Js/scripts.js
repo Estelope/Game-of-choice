@@ -46,8 +46,7 @@ function playDice() {
   }                              
 
   if (playerScores[currentPlayer] + currentScore >= 100) {
-    console.log(([currentPlayer] + 1) + " wins");
-    document.getElementById("player" + (currentPlayer + 1)).textContent = playerScores[currentPlayer] + currentScore;
+    document.getElementById("player" + (currentPlayer + 1)).textContent = playerScores[currentPlayer] + currentScore + " WINNER!";
     endGame();
   }
 }
