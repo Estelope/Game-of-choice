@@ -18,8 +18,11 @@ function playDice() {
   let showRoll = document.getElementById("showRoll");
   showRoll.innerText = "Your Roll:" + diceValue;
   let diceImage = document.createElement("img");
-  diceImage.src = "img/dice" + diceValue + ".png";
+  let lineBreak = document.createElement("br");
+  diceImage.src = "images/dice" + diceValue + ".png";
+  showRoll.appendChild(lineBreak);
   showRoll.appendChild(diceImage);
+  
 
   if (diceValue === 1) {
     document.getElementById("bust").removeAttribute("class", "hidden");
