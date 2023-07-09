@@ -28,7 +28,12 @@ function playDice() {
   showRoll.appendChild(diceImage2);
 
 
-  if (diceValue1 === 1 || diceValue2 === 1) {
+  if (diceValue1 === 1 && diceValue2 === 1) {
+    document.getElementById("bust").removeAttribute("class", "hidden");
+    currentScore = 0;
+    playerScores[currentPlayer] = 0;
+    changePlayer(currentPlayer, playerScores);
+  } else if (diceValue1 === 1 || diceValue2 === 1) {
     document.getElementById("bust").removeAttribute("class", "hidden");
     currentScore = 0;
     changePlayer(currentPlayer, playerScores);
@@ -67,9 +72,6 @@ function reset() {
 
 function changePlayer() {
   playerScores[currentPlayer] += currentScore;
-  if (currentScore === 0) {
-    playerScores[currentPlayer] = 0;
-  }
   document.getElementById("player" + (currentPlayer + 1)).textContent = playerScores[currentPlayer];
   currentScore = 0;
   if (currentPlayer === 0) {
